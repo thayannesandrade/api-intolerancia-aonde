@@ -4,6 +4,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 
+const port = process.env.PORT || 3000
+
 
 // forma de ler json
 app.use(
@@ -36,7 +38,9 @@ mongoose
     )
     .then(() => {
         console.log('Conecatamos ao MongoDB')
-        app.listen(3000)
+        app.listen(port, () => {
+            console.info("Aplicação rodando em http://localhost:3000")
+        })
 
     })
     .catch((error) => console.log(error))
