@@ -39,7 +39,7 @@ mongoose
     .then(() => {
         console.log('Conecatamos ao MongoDB')
         app.listen(port, () => {
-            console.info("Aplicação rodando em http://localhost:3000")
+            console.info("Aplicação rodando em:" + port)
         })
 
     })
