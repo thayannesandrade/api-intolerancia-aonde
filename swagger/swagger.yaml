@@ -1,0 +1,44 @@
+swagger: '2.0'
+info:
+  title: API de Intolerância Religiosa
+  description: API para registro e consulta de casos de intolerância religiosa no Brasil.
+  version: "1.0.0"
+ 
+basePath: /
+schemes:
+  - http
+
+paths:
+  /casos:
+    post:
+      summary: Cadastrar um novo caso de intolerância religiosa.
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Dados do caso
+          required: true
+          schema:
+            type: object
+            properties:
+              estado:
+                type: string
+              descricao:
+                type: string
+              data_ocorrencia:
+                type: string
+      responses:
+        201:
+          description: Novo caso cadastrado com sucesso.
+    get:
+      summary: Listar casos de intolerância religiosa.
+      parameters:
+        - name: estado
+          in: query
+          type: string
+          description: Filtrar por estado (opcional)
+      responses:
+        200:
+          description: Lista de casos retornada com sucesso.
+--
